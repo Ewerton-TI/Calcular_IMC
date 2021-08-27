@@ -11,5 +11,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setListeners()
+    }
+
+    private fun setListeners() {
+        pesoEDT?.doOnTextChanged { text, _, _, _ ->
+            titleTXT?.text = text
+        }
+        alturaEDT.doAfterTextChanged { text ->
+            Toast.makeText(this, text.toString(), Toast.LENGTH_SHORT).show()
+        }
     }
 }
